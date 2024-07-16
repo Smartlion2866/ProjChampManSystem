@@ -1,6 +1,5 @@
 package ingreso;
 
-/*import java.awt.BorderLayout;*/
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -19,8 +18,6 @@ public class Login extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JLabel lblUsuario;
-	private JLabel lblContrasena;
 	private JTextField txtUsuario;
 	private JTextField txtContrasena;
 	private JLabel lblOlvidasteContrasena;
@@ -53,46 +50,51 @@ public class Login extends JFrame implements ActionListener {
 	/* Create the frame */
 	
 	public Login() {
-		setTitle("Sistema de Ingreso");
+		setLocationRelativeTo(null);
+		
+		setTitle("LOGIN AL SISTEMA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 388, 300);
+		setBounds(100, 100, 396, 315);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 255));
+		contentPane.setFont(new Font("Arial", Font.PLAIN, 12));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		lblUsuario = new JLabel("Usuario");
-		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblUsuario.setBounds(10, 69, 108, 14);
-		contentPane.add(lblUsuario);
-		
-		lblContrasena = new JLabel("Contrase\u00F1a");
-		lblContrasena.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblContrasena.setBounds(10, 115, 108, 14);
-		contentPane.add(lblContrasena);
-		
+				
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(135, 66, 173, 20);
+		txtUsuario.setBounds(40, 66, 290, 25);
+		txtUsuario.setForeground(Color.LIGHT_GRAY);
+		txtUsuario.setText("USUARIO");
+		txtUsuario.setFont(new Font("Arial", Font.PLAIN, 14));
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		txtContrasena = new JTextField();
-		txtContrasena.setBounds(135, 112, 173, 20);
+		txtContrasena.setBounds(40, 112, 290, 25);
+		txtContrasena.setForeground(Color.LIGHT_GRAY);
+		txtContrasena.setText("CONTRASEÃ‘A");
+		txtContrasena.setFont(new Font("Arial", Font.PLAIN, 14));
 		contentPane.add(txtContrasena);
 		txtContrasena.setColumns(10);
 		
 		lblOlvidasteContrasena = new JLabel("\u00BFOlvidaste la contrase\u00F1a?");
-		lblOlvidasteContrasena.setBounds(97, 198, 210, 14);
+		lblOlvidasteContrasena.setFont(new Font("Arial", Font.PLAIN, 13));
+		lblOlvidasteContrasena.setForeground(Color.WHITE);
+		lblOlvidasteContrasena.setBounds(40, 150, 210, 14);
 		contentPane.add(lblOlvidasteContrasena);
 		
 		lblRegistrate = new JLabel("Registrate");
-		lblRegistrate.setBounds(97, 223, 124, 14);
+		lblRegistrate.setFont(new Font("Arial", Font.PLAIN, 13));
+		lblRegistrate.setForeground(Color.WHITE);
+		lblRegistrate.setBounds(260, 150, 124, 14);
 		contentPane.add(lblRegistrate);
 		
 		btnIniciarSesion = new JButton("Iniciar Sesi\u00F3n");
 		btnIniciarSesion.addActionListener(this);
-		btnIniciarSesion.setBackground(Color.BLUE);
-		btnIniciarSesion.setBounds(95, 164, 213, 23);
+		btnIniciarSesion.setBackground(Color.ORANGE);
+		btnIniciarSesion.setFont(new Font("Arial", Font.PLAIN, 17));
+		btnIniciarSesion.setBounds(40, 200, 290, 30);
 		contentPane.add(btnIniciarSesion);
 	}
 	
@@ -115,12 +117,15 @@ public class Login extends JFrame implements ActionListener {
 						
 			if (usuario.equals(correo)) {
 				if (password.equals(contrasena)) {
-					JOptionPane.showMessageDialog(null, "Bienvenido !!!");
+					JOptionPane.showMessageDialog(null, "Bienvenido al Sistema!!!");
+					Principal frame = new Principal();
+					frame.setVisible(true);
+					
 					estado = 1;
-					dispose();
+					//dispose();
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "Estimado Usuario la contraseña es incorrecta !!!");
+					JOptionPane.showMessageDialog(null, "Estimado Usuario la contraseï¿½a es incorrecta !!!");
 					contador = contador + 1;
 					estadocontrasena = 1;
 				}
